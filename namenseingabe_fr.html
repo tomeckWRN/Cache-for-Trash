@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrée du nom</title>
+  <script type="module" src="./firebase-config.js"></script>
+  <style>
+    @font-face {
+      font-family: 'PixelFont';
+      src: url('https://fonts.cdnfonts.com/s/14802/PressStart2P-Regular.woff') format('woff');
+    }
+    body {
+      margin: 0;
+      background: url('background_muell.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'PixelFont', monospace;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    .form-box {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: 5rem auto;
+    }
+    input {
+      font-size: 1rem;
+      padding: 1rem;
+      width: 90%;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: block;
+      font-size: 1.1rem;
+      padding: 1rem;
+      width: 90%;
+      max-width: 400px;
+      background: #00cc66;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin: auto;
+    }
+    .btn:hover {
+      background: #009944;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Entrez votre nom :</h2>
+    <form id="nameForm">
+      <input type="text" id="username" required placeholder="Votre nom">
+      <button type="submit" class="btn">Continuer</button>
+    </form>
+  </div>
+
+  <script type="module">
+    import { db, addDoc, collection, serverTimestamp } from "./firebase-config.js";
+
+    const form = document.getElementById("nameForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("username").value;
+      await addDoc(collection(db, "namen"), {
+        name,
+        timestamp: serverTimestamp()
+      });
+      window.location.href = 'franzoesisch.html';
+    });
+  </script>
+</body>
+</html>

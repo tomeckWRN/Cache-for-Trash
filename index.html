@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Sprachauswahl</title>
+  <style>
+    @font-face {
+      font-family: 'PixelFont';
+      src: url('https://fonts.cdnfonts.com/s/14802/PressStart2P-Regular.woff') format('woff');
+    }
+    body {
+      margin: 0;
+      background: url('background_muell.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'PixelFont', monospace;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 1.1rem;
+      padding: 1rem;
+      width: 90%;
+      max-width: 400px;
+      background: #00cc66;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin: 1rem auto;
+    }
+    .btn:hover {
+      background: #009944;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cache for Trash</h1>
+  <h2>Bitte Sprache wählen</h2>
+  <button class="btn" onclick="window.location.href='namenseingabe_de.html'">Deutsch</button>
+  <button class="btn" onclick="window.location.href='namenseingabe_fr.html'">Français</button>
+</body>
+</html>
